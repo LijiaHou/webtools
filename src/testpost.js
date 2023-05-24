@@ -25,11 +25,12 @@
 
 /**
  *  下面使用nodejs原生的 http 模块发送请求
- * 
+ *   文档在 https://nodejs.org/docs/latest-v8.x/api/http.html
  **/
+const { log } = require('console');
 const https = require('http');
 
-const data = JSON.stringify({
+const postData = JSON.stringify({
   username: "admin",
   password: "1233321"
 })
@@ -42,12 +43,26 @@ const req = https.request({
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Content-Length':data.length
+    'Content-Length': postData.length
   }
 }, (res) => {
-  res.on('data', () => {
-    console.log('data', data)
-  })
+  let pipeTemp;
+  res.pipe(pipeTemp);
+  console.log(`STATUS: ${res.statusCode}`);
+  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+  res.setEncoding('utf8');
+  res.on('data', (chunk) => {
+    console.log(`BODY: ${chunk}`);
+  });
+  res.on('end', () => {
+    console.log('No more data in response.');
+  });
 })
+
+req.on('error', (e) => {
+  console.error(`problem with request: ${e.message}`);
+});
+
+req.write(postData);
 
 req.end();

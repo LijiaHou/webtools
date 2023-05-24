@@ -2,8 +2,11 @@ import Koa from 'koa'
 import userRouter2 from "../router/user2"
 import bodyParser from 'koa-bodyparser'
 import serve from 'koa-static'
+import KoaLogger from 'koa-logger'
 
 const app = new Koa();
+
+app.use(KoaLogger());
 
 app.use(bodyParser());
 

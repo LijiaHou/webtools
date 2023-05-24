@@ -16,7 +16,6 @@ router.get("/list", (ctx, next) => {
 
 router.post("/add", (ctx, next) => {
   console.log('post的request', ctx.request.body);
-  ctx.he
   ctx.body = "添加到用户";
 })
 
