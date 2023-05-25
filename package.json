@@ -22,7 +22,7 @@
     "url": "https://github.com/LijiaHou/webtools.git"
   },
   "scripts": {
-    "dev": "babel-node src\\01hello.js",
+    "dev": "nodemon --watch src --exec babel-node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
