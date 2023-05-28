@@ -1,6 +1,6 @@
 import Koa from 'koa'
-import indexRouter from "../router/index"
-import userRouter from "../router/user"
+import indexRouter from "../router/learn/index"
+import userRouter from "../router/learn/user"
 
 const app = new Koa();
 

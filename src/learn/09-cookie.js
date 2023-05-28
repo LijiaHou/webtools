@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import userRouter3 from "../router/user3"
+import userRouter3 from "../router/learn/user3"
 import bodyParser from 'koa-bodyparser'
 import serve from 'koa-static'
 
