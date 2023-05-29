@@ -27,7 +27,6 @@
  *  下面使用nodejs原生的 http 模块发送请求
  *   文档在 https://nodejs.org/docs/latest-v8.x/api/http.html
  **/
-const { log } = require('console');
 const https = require('http');
 
 const postData = JSON.stringify({
@@ -46,8 +45,6 @@ const req = https.request({
     'Content-Length': postData.length
   }
 }, (res) => {
-  let pipeTemp;
-  res.pipe(pipeTemp);
   console.log(`STATUS: ${res.statusCode}`);
   console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
   res.setEncoding('utf8');
