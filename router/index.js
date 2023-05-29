@@ -4,7 +4,7 @@ import Router from "@koa/router";
 export const router = new Router();
 
 router.get("/", (ctx, next) => {
-  ctx.body = "欢迎访问首页面";
+  ctx.body = "欢迎访问webtools首页";
 })
 
 export default router

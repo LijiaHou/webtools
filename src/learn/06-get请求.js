@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import userRouter from "../router/user"
+import userRouter from "../router/learn/user"
 
 const app = new Koa();
 
