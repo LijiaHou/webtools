@@ -123,7 +123,7 @@ const postData = JSON.stringify({
 const req = https.request({
   protocol: 'http:',
   hostname: '127.0.0.1',
-  port: 3040,
+  port: 3000,
   path: '/mergeimage',
   method: 'POST',
   headers: {
