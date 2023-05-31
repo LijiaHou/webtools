@@ -44,6 +44,7 @@ const opts = {
   temporarily: true,
   width: 375 * RATIO,
   height: 668 * RATIO,
+  // 因为是按顺序画的，所以传在后面的图或文本会覆盖前面的图和文本
   resources: [
     {
       type: 'image',
@@ -58,6 +59,19 @@ const opts = {
         },
       },
     },
+    // {
+    //   type: 'image',
+    //   attributes: {
+    //     url: 'http://tbfile.ixiaochuan.cn/img/png/id/670379726',
+    //     style: {
+    //       left: 100 * RATIO,
+    //       top: 200 * RATIO,
+    //       width: 200 * RATIO,
+    //       height: 100 * RATIO,
+    //       borderRadius: '0%',
+    //     },
+    //   },
+    // },
     {
       type: 'text',
       attributes: {

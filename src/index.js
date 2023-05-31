@@ -4,7 +4,7 @@ import bodyParser from 'koa-bodyparser';
 import indexRouter from './router/index'
 import mergeImageRouter from './router/mergeImage'
 
-const port = 3000;
+export const port = 3000;
 const app = new Koa();
 
 
