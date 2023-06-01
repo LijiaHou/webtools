@@ -2,8 +2,11 @@ const _ = (canvasCtx, resource) => {
   const {attributes: {content, style} = {}} = resource
 
   canvasCtx.font = `${style.fontSize}px Impact`
-  canvasCtx.fillText(content, style.width, style.height)
+  canvasCtx.fillStyle = style.color
+  canvasCtx.fillText(content, style.left, style.top, style.maxWidth)
 
+  console.log('content:', content)
+  console.log('style:', style)
 }
 
 export default _

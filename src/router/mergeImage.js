@@ -62,4 +62,24 @@ router.get('/viewimage', ctx => {
   }
 })
 
+router.post('/measureText', ctx => {
+  const {canvas: req, canvas: {fontSize, fontFamily, text}} = ctx.request.body
+  console.log('req', req)
+
+  const canvas = createCanvas(500, 500)
+  const canvasCtx = canvas.getContext('2d')
+  
+  canvasCtx.font = `${fontSize}px ${fontFamily}`
+  const {width} = canvasCtx.measureText(text)
+
+  ctx.status = 200
+  ctx.type = 'application/json'
+  ctx.body = JSON.stringify({
+    ret: 1,
+    data: {
+      width,
+    }
+  })
+})
+
 export default router
