@@ -109,7 +109,7 @@ const opts = {
     {
       type: 'text',
       attributes: {
-        content: hasSended ? '个高考助力者' : '人为2021高考助力',
+        content: !hasSended ? '个高考助力者阿爸爸爸爸爸爸，我我我我我我我我我我我我我我我呜呜呜呜呜呜呜呜呜呜呜呜呜呜我' : '人为2021高考助力',
         style: {
           left:
             (numberOffsetLeft +
@@ -122,7 +122,7 @@ const opts = {
           color: '#DCDCDC',
           lineHeight: 25 * RATIO,
           fonwWeight: 400 * RATIO,
-          maxWidth: 266 * RATIO,
+          maxWidth: 100 * RATIO,
           fontFamily: wordFamily,
         },
       },
