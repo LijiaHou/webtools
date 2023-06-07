@@ -67,30 +67,39 @@ class myPromise {
 
 // 测试
 // 1. 链式调用
-var p1 = new Promise(function (resolve, reject) {
-  console.log("init Promise");
-  if (Math.random() > 0.5) {
-    resolve("大");
-  } else {
-    reject("小");
-  }
-});
-p1.then(
-  (data) => console.log("success", data),
-  (reason) => console.log("error", reason)
-).then(
-  () => console.log("success 2"),
-  () => console.log("error 2")
-);
+// var p1 = new Promise(function (resolve, reject) {
+//   console.log("init Promise");
+//   if (Math.random() > 0.5) {
+//     resolve("大");
+//   } else {
+//     reject("小");
+//   }
+// });
+// p1.then(
+//   (data) => console.log("success", data),
+//   (reason) => console.log("error", reason)
+// ).then(
+//   () => console.log("success 2"),
+//   () => console.log("error 2")
+// );
 
 // 2. 异步延时
-// var sleep = (time, data) =>
-//   new myPromise(function (resolve, reject) {
-//     setTimeout(resolve, time, data);
-//   });
-// sleep(3000, "时间到！").then((val) => {
-//   console.log(val);
-// });
+var sleep = (time, data) =>
+  new Promise(function (resolve, reject) {
+    setTimeout(resolve, time, data);
+  });
+sleep(1000, "起床！")
+  .then((val) => {
+    console.log(val);
+    return sleep(2000, '吃饭！')
+  })
+  .then((val) => {
+    console.log(val);
+    return sleep(3000, '睡觉！')
+  })
+  .then((val => {
+    console.log(val);
+  }));
 
 
 // 3. 状态变更后不可变
