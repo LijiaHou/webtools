@@ -16,6 +16,9 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "colors": "^1.4.0",
+    "commander": "^10.0.1",
+    "cross-spawn": "^7.0.3",
     "koa-logger": "^3.2.1",
     "nodemon": "^2.0.22"
   },
