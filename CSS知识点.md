@@ -110,3 +110,53 @@ z-index属性只有和position定位不为static的元素在一起时才起作�
 5. transform、transition过渡属性动画
 6. background渐变、backgrond-origin、background-clip、backgrond-size、background多个背景叠加
 7. rgba
+
+# 回流重绘
+
+- 回流：元素的位置、大小发生变化导致其他节点联动，需要重新计算布局
+- 重绘：修改了一些不影响布局的属性，比如颜色
+
+## 回流触发时机
+- 删除或添加可见的DOM元素
+- 元素位置变化
+- 元素的尺寸发生变化
+- 元素的内容发生变化
+- 页面初始渲染
+- 浏览器窗口尺寸变化
+- 获取一些特定属性的值
+  - offsetTop、offsetLeft...
+  - scrollTop...
+  - clientTop...
+  - 这些属性都需要即使计算得到，因此浏览器在获取之前要进行回流 
+
+## 重绘触发时机
+- 回流一定触发重绘
+- 颜色的修改
+- 文本方向修改
+- 阴影修改 
+
+## 减少回流
+- 对于那些复杂的动画，对其设置位置 `position：fixed/absolute`，尽可能让其脱离文档流，减少对其他元素位置的影响
+- 使用css3硬件加速，可以让transform、opacity、filters这些动画不引起回流重绘
+- 在使用js动态插入多个节点时，可以使用DocumentFragment创建后一次性插入
+- 可以通过设置元素`display:none`，将其从页面去掉，在进行操作，也可以避免回流重绘，这个过程被称作离线操作
+
+# 合成层
+只有一些特殊的渲染层才会被提升到合成层：
+- transform:3D变换：translate3d、translateZ
+- 对opacity、transform、filter应用了过渡和动画
+- video、canvas、iframe
+
+合成层可以交给GPU独立渲染，也就是硬件加速，效率更高
+
+# 元素隐藏
+## 不可见，不占空间
+1. display:none
+2. absolute + visibility:hidden
+3. absolute + opacity:0
+4. relative + left负值
+
+## 不可见，占空间
+1. visibility:hidden
+2. relative + z-index负值
+3. opacity:0
