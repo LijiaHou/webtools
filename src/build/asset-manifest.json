@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9cfb803a.css",
+    "main.js": "/static/js/main.53ef3fcc.js",
+    "static/media/logo.png": "/static/media/logo.44240edff5d0a43c19e7.png",
+    "static/media/底板弹窗@2x.png": "/static/media/底板弹窗@2x.9d1a621d0a057e9e970c.png",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.9cfb803a.css",
+    "static/js/main.53ef3fcc.js"
+  ]
+}

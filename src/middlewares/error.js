@@ -3,6 +3,7 @@
 
 const _ =  async (ctx, next) => {
   try {
+    console.log('有请求');
     await next();
   } catch (error) {
     ctx.status = error.status || 500;
